@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#BSUB -n 2
+#BSUB -n 4
 #BSUB -q general
 #BSUB -J test_mpi
 #BSUB -W 10
 #BSUB -N
 #BSUB -u cyuran@wustl.edu
-#BSUB -R 'gpuhost'
-#BSUB -gpu "num=2:gmodel=TeslaV100_SXM2_32GB"
+# #BSUB -R 'gpuhost'
+# #BSUB -gpu "num=2:gmodel=TeslaV100_SXM2_32GB"
 #BSUB -a 'docker(fizban007/cuda_hpc)'
 
-mpirun ./test
+mpirun ./test_host
