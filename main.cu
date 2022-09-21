@@ -9,8 +9,12 @@ int main(int argc, char *argv[]) {
     int n_devices;
     cudaGetDeviceCount(&n_devices);
 
-    // int rank;
+    int rank;
+    MPI_Comm_rank(world, &rank);
+    int dev_id = rank % n_devices;
 
+    std::cout << "Rank " << rank << " is using device "
+    << dev_id << std::endl;
 
     MPI_Finalize();
     return 0;
